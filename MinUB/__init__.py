@@ -13,5 +13,5 @@ DOWN_PATH = os.environ.get("DOWN_PATH", "MinUB/downloads/")
 HELP_DICT = dict()
 
 plugins = dict(root="anibot/plugins")
-anibot = Client("anibot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
+bot = Client("anibot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
 user = Client(os.environ.get('HU_USER_SESSION'), api_id=API_ID, api_hash=API_HASH)
