@@ -1,0 +1,15 @@
+tgcrypto
+pyrogram
+lxml
+tracemoepy
+requests
+bs4
+aiohttp
+youtube_dl
+youtube-search-python
+motor
+dnspython
+pySmartDl
+wget
+speedtest-cli
+pylast
