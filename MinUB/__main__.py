@@ -1,6 +1,7 @@
 import asyncio
 from . import mode
 from pyrogram import idle
+from ._db import _close_db
 
 if mode == "ERROR":
     print("No user session or bot token given!!!")
@@ -21,5 +22,6 @@ async def main():
     asyncio.gather(i.start() for i in clients)
     idle()
     asyncio.gather(i.stop() for i in clients)
+    _close_db()
 
 asyncio.get_event_loop().run_until_complete(main())

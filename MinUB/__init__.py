@@ -2,7 +2,7 @@ import os
 from pyrogram import Client
 
 STRIGGERS = os.environ.get("SUDO_TRIGGERS", "/ !").split()
-MTRIGGER = os.environ.get("TRIGGERS", ".").split()[0]
+MTRIGGER = os.environ.get("TRIGGER", ".").split()[0]
 if MTRIGGER in STRIGGERS:
     STRIGGERS.remove(MTRIGGER)
 TRIGGERS = STRIGGERS.append(MTRIGGER)
@@ -31,7 +31,10 @@ if (BOT_TOKEN and SESSION) is not None:
 if mode == "DUAL":
     bot = Client("MinUB", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
     user = Client(SESSION , api_id=API_ID, api_hash=API_HASH)
+    PREFIXES = [MTRIGGER]+STRIGGERS
 elif mode == "BOT":
     bot = Client("MinUB", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
+    PREFIXES = STRIGGERS
 elif mode == "USER":
     user = Client(SESSION , api_id=API_ID, api_hash=API_HASH)
+    PREFIXES = MTRIGGER
