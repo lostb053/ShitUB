@@ -1,7 +1,6 @@
 aiohttp
 bs4
 dnspython
-dotenv
 lxml
 motor
 pylast
