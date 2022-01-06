@@ -30,7 +30,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                 if log_sudo and (data['from_user']['id'] not in OWNER):
                     await log(func.__name__, f"Sudo user {data['from_user']['id']} used the following command\n\n`{data['text']}`")
                 if data['text'].pop()==".":
-                    if (data['from_user']['id'] not in OWNER):
+                    if (data['from_user']['id'] not in int(OWNER)):
                         return
                     client = user
                 else:
