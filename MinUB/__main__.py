@@ -24,6 +24,6 @@ async def main():
     await idle()
     for i in clients:
         await i.stop()
-_close_db()
+    _close_db()
 
 asyncio.get_event_loop().run_until_complete(main())

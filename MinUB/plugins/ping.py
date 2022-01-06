@@ -1,5 +1,5 @@
 import time
-from minimalub.MinUB import PREFIXES
+from .. import PREFIXES
 from . import MinUB, edit_or_reply
 from pyrogram import Client, filters
 from pyrogram.types import Message
