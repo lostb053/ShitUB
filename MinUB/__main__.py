@@ -19,9 +19,11 @@ async def main():
     if mode == "USER":
         from . import user
         clients.append(user)
-    asyncio.gather(i.start() for i in clients)
+    for i in clients:
+        await i.start()
     await idle()
-    asyncio.gather(i.stop() for i in clients)
-    _close_db()
+    for i in clients:
+        await i.stop()
+_close_db()
 
 asyncio.get_event_loop().run_until_complete(main())
