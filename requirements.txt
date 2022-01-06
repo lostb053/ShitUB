@@ -6,6 +6,7 @@ motor
 pylast
 pyrogram
 pySmartDl
+python-dotenv
 requests
 speedtest-cli
 tgcrypto
