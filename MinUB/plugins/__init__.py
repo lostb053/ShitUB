@@ -1,7 +1,7 @@
 import asyncio
 import json
 
-from anibot.anibot import BOT_TOKEN, OWNER
+from .. import BOT_TOKEN, OWNER
 from .. import mode
 if mode == ("DUAL" or "BOT"):
     from .. import bot
