@@ -1,10 +1,10 @@
 import asyncio, os
-from .. import mode, LOG_CHANNEL_ID as lc
+from . import mode, LOG_CHANNEL_ID as lc
 if mode == ("DUAL" or "BOT"):
-    from .. import bot
+    from . import bot
     c = bot
 else:
-    from .. import user
+    from . import user
     c = user
 
 async def log(plugin, text):
