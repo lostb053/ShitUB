@@ -12,7 +12,7 @@ clients = []
 async def main():
     if mode == "DUAL":
         from . import bot, user
-        clients.append(bot, user)
+        clients = [bot, user]
     if mode == "BOT":
         from . import bot
         clients.append(bot)
