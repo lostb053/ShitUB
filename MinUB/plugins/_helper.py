@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, os
 from .. import mode, LOG_CHANNEL_ID as lc
 if mode == ("DUAL" or "BOT"):
     from .. import bot
@@ -8,8 +8,9 @@ else:
     c = user
 
 async def log(plugin, text):
-    msg = "#MinUB"
-    msg += f"  #{plugin.capitalize()}\n\n"
+    hmsg = "#MinUB"
+    hmsg += f"  #{plugin.capitalize()}\n\n"
+    msg = hmsg
     msg += text
     if len(msg)<4095:
         await c.send_message(lc, msg)
@@ -20,7 +21,7 @@ async def log(plugin, text):
         await c.send_document(
             lc,
             filename,
-            caption="`Error`",
+            caption=hmsg,
         )
         os.remove(filename)
         return

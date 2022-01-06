@@ -2,7 +2,7 @@ import os
 from pyrogram import Client
 
 STRIGGERS = os.environ.get("SUDO_TRIGGERS", "/ !").split()
-MTRIGGER = os.environ.get("SUDO_TRIGGERS", ".").split()[0]
+MTRIGGER = os.environ.get("TRIGGERS", ".").split()[0]
 if MTRIGGER in STRIGGERS:
     STRIGGERS.remove(MTRIGGER)
 TRIGGERS = STRIGGERS.append(MTRIGGER)
