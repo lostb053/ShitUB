@@ -22,16 +22,20 @@ ALL_USERS.append(OWNER)
 def MinUB(owner_only = False, log_sudo = True, log_success = False):
     def get_func(func):
         async def wrapper(_, q):
+            print("1")
             data = json.loads(str(q))
             if type(q) == Message:
                 if owner_only and (data['from_user']['id'] not in OWNER):
+                    print("2")
                     return
                 if str(data['from_user']['id']) not in ALL_USERS:
+                    print("3")
                     return
                 if log_sudo and (data['from_user']['id'] not in OWNER):
                     await log(func.__name__, f"Sudo user {data['from_user']['id']} used the following command\n\n`{data['text']}`")
                 if data['text'].pop()==".":
                     if (data['from_user']['id'] not in int(OWNER)):
+                        print("4")
                         return
                     client = user
                 else:
@@ -41,6 +45,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                             client = bot
                         except Exception:
                             if data['from_user']['id'] in OWNER:
+                                print("5")
                                 return
                         client = user
                     else:
@@ -48,9 +53,11 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
             if type(q) == CallbackQuery:
                 if owner_only and (data['from_user']['id'] not in OWNER):
                     await q.answer("Not enough permissions!!!")
+                    print("6")
                     return
                 if data['from_user']['id'] not in ALL_USERS:
                     await q.answer("Not enough permissions!!!")
+                    print("7")
                     return
             try:
                 await func(client, q, data)
