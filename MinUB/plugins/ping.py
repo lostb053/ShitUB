@@ -10,4 +10,4 @@ async def ping_cmd(client: Client, message: Message, data: dict):
     st = time.time()
     x = await edit_or_reply(client, message, "Ping!!!")
     et = time.time()
-    await x.edit_text(f"Pong!!!\n{((et-st)*100)[:6]}ms")
+    await x.edit_text(f"Pong!!!\n{str((et-st)*100)[:6]}ms")

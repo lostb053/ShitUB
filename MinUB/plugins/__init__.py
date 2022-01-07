@@ -82,7 +82,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
 
 async def edit_or_reply(client: Client, msg: Message, text: str):
     try:
-        m = await msg.edit_text(text)
+        m = await client.edit_message_text(msg.chat.id, msg.message_id, text)
     except Exception:
-        m = await client.send_message(text, reply_to_message_id=msg.message_id)
+        m = await client.send_message(msg.chat.id, text, reply_to_message_id=msg.message_id)
     return m
