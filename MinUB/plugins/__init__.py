@@ -3,12 +3,12 @@ import json
 
 from .. import BOT_TOKEN, OWNER
 from .. import mode
-if mode == ("DUAL" or "BOT"):
+if mode=="DUAL":
+    from .. import bot, user
+elif mode=="BOT":
     from .. import bot
-    c = bot
 else:
     from .. import user
-    c = user
 from .._helper import log
 from traceback import format_exc as ec
 from pyrogram import Client
@@ -44,10 +44,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                             await user.get_chat_member(data['chat']['id'], BOT_TOKEN.split(":")[0])
                             client = bot
                         except Exception:
-                            if data['from_user']['id'] in OWNER:
-                                print("5")
-                                return
-                        client = user
+                            client = user
                     else:
                         client = bot
             if type(q) == CallbackQuery:
