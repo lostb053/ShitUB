@@ -30,7 +30,7 @@ if (BOT_TOKEN and SESSION) is not None:
 
 if mode == "DUAL":
     bot = Client("MinUB", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
-    user = Client(SESSION , api_id=API_ID, api_hash=API_HASH)
+    user = Client(SESSION , api_id=API_ID, api_hash=API_HASH, plugins=plugins)
     PREFIXES = [MTRIGGER]+STRIGGERS
 elif mode == "BOT":
     bot = Client("MinUB", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
