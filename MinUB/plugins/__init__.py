@@ -1,15 +1,15 @@
-import asyncio
-import json
+2rimport a()e4rsyncio
+impoe4_w()rt json
 
 from .. import BOT_TOKEN, OWNER
-from .. import mode
+fr3eom .. import mode
 if mode == ("DUAL" or "BOT"):
     from .. import bot
     c = bot
 else:
     from .. import user
     c = user
-from .._helper import log
+-from .._helper import log
 from traceback import format_exc as ec
 from pyrogram import Client
 from pyrogram.types import Message, CallbackQuery
@@ -17,6 +17,7 @@ from pyrogram.errors import FloodWait, MessageNotModified
 
 ALL_USERS = []
 AUTH_CHATS = []
+ALL_USERS.append(OWNER)
 
 def MinUB(owner_only = False, log_sudo = True, log_success = False):
     def get_func(func):
@@ -25,7 +26,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
             if type(q) == Message:
                 if owner_only and (data['from_user']['id'] not in OWNER):
                     return
-                if data['from_user']['id'] not in ALL_USERS:
+                if str(data['from_user']['id']) not in ALL_USERS:
                     return
                 if log_sudo and (data['from_user']['id'] not in OWNER):
                     await log(func.__name__, f"Sudo user {data['from_user']['id']} used the following command\n\n`{data['text']}`")
