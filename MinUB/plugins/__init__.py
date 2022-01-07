@@ -1,15 +1,15 @@
-2rimport a()e4rsyncio
-impoe4_w()rt json
+import asyncio
+import json
 
 from .. import BOT_TOKEN, OWNER
-fr3eom .. import mode
+from .. import mode
 if mode == ("DUAL" or "BOT"):
     from .. import bot
     c = bot
 else:
     from .. import user
     c = user
--from .._helper import log
+from .._helper import log
 from traceback import format_exc as ec
 from pyrogram import Client
 from pyrogram.types import Message, CallbackQuery
@@ -51,7 +51,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                     return
                 if data['from_user']['id'] not in ALL_USERS:
                     await q.answer("Not enough permissions!!!")
-                    return 
+                    return
             try:
                 await func(client, q, data)
                 if log_success:
@@ -72,7 +72,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
     return get_func
 
 
-async def edit_or_reply(msg: Message, text: str) -> Message: 
+async def edit_or_reply(msg: Message, text: str) -> Message:
     try:
         await msg.edit_text(text)
     except Exception:
