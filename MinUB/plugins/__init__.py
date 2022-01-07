@@ -33,13 +33,14 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                     return
                 if log_sudo and (data['from_user']['id'] not in OWNER):
                     await log(func.__name__, f"Sudo user {data['from_user']['id']} used the following command\n\n`{data['text']}`")
-                print(data['text'][0], data['text'][1])
                 if data['text'][0]==".":
+                    print("9")
                     if (data['from_user']['id'] not in OWNER):
                         print("4")
                         return
                     client = user
                 else:
+                    print("8")
                     if (data['chat']['type'] in ["group", "supergroup"]) and (data['chat']['id'] not in AUTH_CHATS):
                         try:
                             await user.get_chat_member(data['chat']['id'], BOT_TOKEN.split(":")[0])
