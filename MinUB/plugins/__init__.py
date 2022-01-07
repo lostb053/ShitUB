@@ -17,7 +17,7 @@ from pyrogram.errors import FloodWait, MessageNotModified
 
 ALL_USERS = []
 AUTH_CHATS = []
-ALL_USERS + OWNER
+ALL_USERS = ALL_USERS + OWNER
 
 def MinUB(owner_only = False, log_sudo = True, log_success = False):
     def get_func(func):
