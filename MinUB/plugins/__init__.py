@@ -33,7 +33,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                     return
                 if log_sudo and (data['from_user']['id'] not in OWNER):
                     await log(func.__name__, f"Sudo user {data['from_user']['id']} used the following command\n\n`{data['text']}`")
-                if list(data['text'])[0]==".":
+                if data['text'][0]==".":
                     if (data['from_user']['id'] not in OWNER):
                         print("4")
                         return
@@ -76,8 +76,9 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
     return get_func
 
 
-async def edit_or_reply(msg: Message, text: str) -> Message:
+async def edit_or_reply(msg: Message, text: str):
     try:
-        await msg.edit_text(text)
+        m = await msg.edit_text(text)
     except Exception:
-        await msg.reply_text(text)
+        m = await msg.reply_text(text)
+    return m
