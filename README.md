@@ -29,4 +29,9 @@ So it's just me making a lite version of these userbots including the features I
 Both of the above mentioned userbots are actually same, but USERGE-X was tweaked and better version of Userge (_in my opinion_), sadly archived and not getting updates anymore.
 
 ## Where is the code?
-Coming soon...
+~~Coming soon...~~
+Nvr
+why?
+i suck at coding
+tho if you are interested
+contact me on tg @lucky9727
