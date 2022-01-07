@@ -28,7 +28,7 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                 if owner_only and (data['from_user']['id'] not in OWNER):
                     print("2")
                     return
-                if str(data['from_user']['id']) not in ALL_USERS:
+                if data['from_user']['id'] not in ALL_USERS:
                     print("3")
                     return
                 if log_sudo and (data['from_user']['id'] not in OWNER):
