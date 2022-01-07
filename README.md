@@ -33,5 +33,3 @@ Both of the above mentioned userbots are actually same, but USERGE-X was tweaked
 Nvr<br>
 why?<br>
 i suck at coding<br>
-tho if you are interested
-contact me on tg @lucky9727
