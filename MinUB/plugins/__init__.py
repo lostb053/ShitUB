@@ -46,6 +46,8 @@ def MinUB(owner_only = False, log_sudo = True, log_success = False):
                             await user.get_chat_member(data['chat']['id'], BOT_TOKEN.split(":")[0])
                             client = bot
                         except Exception:
+                            if data['from_user']['id'] in OWNER:
+                                return
                             client = user
                     else:
                         client = bot
